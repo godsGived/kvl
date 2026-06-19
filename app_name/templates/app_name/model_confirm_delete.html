@@ -1,5 +1,5 @@
-{% extends '[APP_NAME]/base.html' %}
-{% block title %}Удаление записи{% endblock %}
+{% extends 'products/base.html' %}
+{% block title %}Удаление товара{% endblock %}
 
 {% block content %}
 <div class="row justify-content-center">
@@ -9,11 +9,11 @@
                 <h4 class="mb-0">Опасная операция!</h4>
             </div>
             <div class="card-body text-center py-4">
-                <h5>Вы уверены, что хотите безвозвратно удалить объект?</h5>
-                <p class="text-muted">"{{ item }}"</p>
+                <h5>Вы уверены, что хотите безвозвратно удалить товар?</h5>
+                <p class="text-muted mt-2">"{{ product.name }}" (Артикул: {{ product.sku }})</p>
                 <form method="post" class="mt-4">
                     {% csrf_token %}
-                    <a href="{% url '[MODEL_LOWER]_list' %}" class="btn btn-secondary me-2">Нет, отмена</a>
+                    <a href="{% url 'product_list' %}" class="btn btn-secondary me-2">Нет, отмена</a>
                     <button type="submit" class="btn btn-danger">Да, удалить</button>
                 </form>
             </div>
